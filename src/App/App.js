@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
+import ApiCalls from '../apiCall'
 
 class App extends Component {
+  componentDidMount() {
+    const {getAllReservations} = ApiCalls();
+    const findExistingReservations = async () => {
+      const reservations = await getAllReservations();
+      console.log(reservations)
+    };
+    findExistingReservations();
+  }
+
   render() {
     return (
       <div className="App">
@@ -10,7 +20,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-          
+
         </div>
       </div>
     )

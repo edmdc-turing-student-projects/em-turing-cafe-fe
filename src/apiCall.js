@@ -1,4 +1,4 @@
-export const apiCalls = () => {
+const ApiCalls = () => {
   const rootUrl = 'http://localhost:3001/api/v1/reservations'
 
   return {
@@ -8,3 +8,5 @@ export const apiCalls = () => {
     }
   }
 }
+
+export default ApiCalls
