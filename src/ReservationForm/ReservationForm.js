@@ -12,9 +12,9 @@ class ReservationForm extends Component {
     };
   }
 
-  // handleChange = () => {
-  //   this.setState([event.target
-  // }
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
 
   render() {
     return (
@@ -23,21 +23,25 @@ class ReservationForm extends Component {
           id='name'
           name='name'
           placeholder='Name'
+          onChange={(event) => this.handleChange(event)}
         />
         <input
           id='date'
           name='date'
           placeholder='Date (mm/dd)'
+          onChange={(event) => this.handleChange(event)}
         />
         <input
           id='time'
           name='time'
           placeholder='Time (hh:mm)'
+          onChange={(event) => this.handleChange(event)}
         />
         <input
           id='guest-number'
           name='guestNumber'
           placeholder='Number of guests'
+          onChange={(event) => this.handleChange(event)}
         />
         <button
           id='submit-reservation'
