@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ApiCalls from '../apiCall'
 import ReservationForm from '../ReservationForm/ReservationForm'
+import ReservationCards from '../ReservationCards/ReservationCards'
 
 class App extends Component {
   constructor() {
@@ -21,18 +22,6 @@ class App extends Component {
     findExistingReservations();
   }
 
-  renderReservations = () => {
-    return this.state.reservations.map((reservation, index) => {
-      return (
-        <article className='single-resy' key={index}>
-          <h4>{reservation.name}</h4>
-          <p>{reservation.date}</p>
-          <p>{reservation.time}</p>
-          <p>{`Guest Number:${reservation.number}`}</p>
-        </article>
-      )
-    })
-  }
 
   submitReservation = (newReservation) => {
     const updatedReservations = [...this.state.reservations, newReservation]
@@ -47,7 +36,11 @@ class App extends Component {
           <ReservationForm submitReservation={this.submitReservation} />
         </div>
         <div className='resy-container'>
-          {this.state.reservations && this.renderReservations()}
+          {this.state.reservations &&
+            <ReservationCards
+              reservations={this.state.reservations}
+            />
+          }
         </div>
       </div>
     )
