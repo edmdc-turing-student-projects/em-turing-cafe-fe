@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ApiCalls from '../apiCall'
+import ReservationForm from '../ReservationForm/ReservationForm'
 
 class App extends Component {
   constructor() {
@@ -37,8 +38,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'>
-
+        <div className='resy-form-container'>
+          <ReservationForm />
         </div>
         <div className='resy-container'>
           {this.state.reservations && this.renderReservations()}
