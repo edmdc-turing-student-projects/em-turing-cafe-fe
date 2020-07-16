@@ -22,9 +22,9 @@ class App extends Component {
   }
 
   renderReservations = () => {
-    return this.state.reservations.map(reservation => {
+    return this.state.reservations.map((reservation, index) => {
       return (
-        <article className='single-resy'>
+        <article className='single-resy' key={index}>
           <h4>{reservation.name}</h4>
           <p>{reservation.date}</p>
           <p>{reservation.time}</p>
