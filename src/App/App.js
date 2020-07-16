@@ -3,13 +3,34 @@ import './App.css';
 import ApiCalls from '../apiCall'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      reservations: []
+    };
+  }
+
   componentDidMount() {
     const {getAllReservations} = ApiCalls();
     const findExistingReservations = async () => {
       const reservations = await getAllReservations();
       console.log(reservations)
+      this.setState({ reservations })
     };
     findExistingReservations();
+  }
+
+  renderReservations = () => {
+    return this.state.reservations.map(reservation => {
+      return (
+        <article className='single-resy'>
+          <h4>{reservation.name}</h4>
+          <p>{reservation.date}</p>
+          <p>{reservation.time}</p>
+          <p>{`Guest Number:${reservation.number}`}</p>
+        </article>
+      )
+    })
   }
 
   render() {
@@ -20,7 +41,7 @@ class App extends Component {
 
         </div>
         <div className='resy-container'>
-
+          {this.state.reservations && this.renderReservations()}
         </div>
       </div>
     )
@@ -28,3 +49,10 @@ class App extends Component {
 }
 
 export default App;
+
+
+// Resy structure
+// id: integer
+// name: string
+// date: string
+// number: integer
