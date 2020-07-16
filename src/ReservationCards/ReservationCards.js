@@ -2,7 +2,6 @@ import React from 'react';
 import './ReservationCards.css'
 
 const ReservationCards = ({ reservations }) => {
-  console.log(reservations)
   const renderReservations = () => {
     return reservations.map((reservation, index) => {
       return (
@@ -20,7 +19,7 @@ const ReservationCards = ({ reservations }) => {
     <>
       {renderReservations()}
     </>
-      )
+  )
 };
 
 export default ReservationCards;
