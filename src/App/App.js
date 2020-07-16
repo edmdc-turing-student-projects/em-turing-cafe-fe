@@ -34,12 +34,17 @@ class App extends Component {
     })
   }
 
+  submitReservation = (newReservation) => {
+    const updatedReservations = [...this.state.reservations, newReservation]
+    this.setState({reservations: updatedReservations})
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form-container'>
-          <ReservationForm />
+          <ReservationForm submitReservation={this.submitReservation} />
         </div>
         <div className='resy-container'>
           {this.state.reservations && this.renderReservations()}
